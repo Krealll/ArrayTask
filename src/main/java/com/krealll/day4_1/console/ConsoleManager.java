@@ -22,6 +22,7 @@ public class ConsoleManager {
 
     public int[] scanIntArray() throws DataException {
         Scanner scanner = new Scanner(System.in);
+        scanner.useDelimiter(" ");
         printToConsole("Enter the size of array");
         int size = scanner.nextInt();
         if(size<1){
@@ -30,7 +31,7 @@ public class ConsoleManager {
         int[] numberArray = new int[size];
         printToConsole("Enter elements of array");
         for (int i = 0; i < size; i++) {
-            numberArray[i]= nextInt();
+            numberArray[i]= scanner.nextInt();
         }
         return numberArray;
     }

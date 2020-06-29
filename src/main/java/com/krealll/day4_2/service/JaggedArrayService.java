@@ -35,7 +35,9 @@ public class JaggedArrayService {
     /* I decided not to emplace my sort example functions in enum,
      or some classes, that implements Function interface.
      Instead of that, i showed them below, as my main sorting function should use lambda expressions.
+    */
 
+    /*
     private int calcSumOfArray(int[] array) throws DataException {
         if(array==null){
             throw new DataException("Wrong jagged array data");
@@ -61,7 +63,7 @@ public class JaggedArrayService {
                 indexOfMax=i;
             }
         }
-        return indexOfMax;
+        return maxVal;
     }
 
     private int findMin(int[] array) throws DataException {
@@ -77,7 +79,7 @@ public class JaggedArrayService {
                 indexOfMin=i;
             }
         }
-        return indexOfMin;
+        return minVal;
     }
 
      */

@@ -18,13 +18,13 @@ public class CustomFileReaderTest {
 
     @Test
     public void ReadArrayPosTest() throws FileException, DataException {
-        String  actualString  = customFileReader.readArray("data"),
+        String  actualString  = customFileReader.readArray("input/data"),
                 expectedString = "1 2 3 4 5 6";
         assertEquals(actualString, expectedString);
     }
 
     @Test(expectedExceptions = FileException.class)
     public void ReadArrayNegTest() throws FileException, DataException {
-        customFileReader.readArray("datum");
+        customFileReader.readArray("sdadasdvwdvc");
     }
 }

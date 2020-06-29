@@ -7,6 +7,8 @@ import com.krealll.day4_1.exception.FileException;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.ByteArrayInputStream;
+
 import static org.testng.Assert.*;
 
 public class IntArrayCreatorTest {
@@ -15,17 +17,28 @@ public class IntArrayCreatorTest {
 
     @BeforeMethod
     public void setUp() {
+        ByteArrayInputStream inPos = new ByteArrayInputStream("6 1 3 4 5 66 7".getBytes());
+        System.setIn(inPos);
         intArrayCreator = new IntArrayCreator();
     }
 
     @Test
-    public void CreateIntArrayFormConsolePosTest() {
-        //TODO add console tests
+    public void CreateIntArrayFormConsolePosTest() throws DataException {
+        IntArray actualIntArray = intArrayCreator.createIntArrayFormConsole(),
+                expectedIntArray = new IntArray(new int[6]);
+        expectedIntArray.setAt(1,0);
+        expectedIntArray.setAt(3,1);
+        expectedIntArray.setAt(4,2);
+        expectedIntArray.setAt(5,3);
+        expectedIntArray.setAt(66,4);
+        expectedIntArray.setAt(7,5);
+        assertEquals(actualIntArray,expectedIntArray);
+        System.setIn(System.in);
     }
 
     @Test
     public void CreateIntArrayFromFilePosTest() throws DataException, FileException, CustomParseException {
-        IntArray actualIntArray = intArrayCreator.createIntArrayFromFile("data"),
+        IntArray actualIntArray = intArrayCreator.createIntArrayFromFile("input/data"),
                 expectedIntArray = new IntArray(new int[6]);
         expectedIntArray.setAt(1,0);
         expectedIntArray.setAt(2,1);
